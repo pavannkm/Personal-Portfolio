@@ -1,16 +1,42 @@
-# React + Vite
+# Pavan KM - Cybersecurity Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the source code of my personal portfolio! This website serves as a digital resume and a showcase of my skills, projects, and experience in Cybersecurity, Vulnerability Assessment, and Penetration Testing (VAPT).
 
-Currently, two official plugins are available:
+## 🚀 Live Website
+You can view the live portfolio here: **[https://pavankm.vercel.app/](https://pavankm.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack
+This project is built with modern web technologies:
+- **React** (UI Library)
+- **Vite** (Build Tool)
+- **Tailwind CSS** (Styling)
+- **Framer Motion** (Animations)
 
-## React Compiler
+## 💻 Getting Started Locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+If you'd like to run this project locally on your machine, follow these steps:
 
-## Expanding the ESLint configuration
+### 1. Clone the repository
+```bash
+git clone git@github.com:pavannkm/Pavan-KM.git
+cd Pavan-KM
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Run the development server
+```bash
+npm run dev
+```
+
+### 4. Open in browser
+Navigate to `http://localhost:5173` in your web browser.
+
+## 📫 Contact
+- **Email**: pavankm146@gmail.com
+- **LinkedIn**: [https://linkedin.com/in/-pavankm](https://linkedin.com/in/-pavankm)
+- **GitHub**: [https://github.com/pavannkm](https://github.com/pavannkm)
+- **TryHackMe**: [https://tryhackme.com/p/cs22.1693](https://tryhackme.com/p/cs22.1693)
