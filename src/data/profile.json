@@ -2,16 +2,13 @@
   "name": "Pavan KM",
   "role": "Cybersecurity Professional",
   "tagline": "VAPT Specialist · Web Application Security · Ethical Hacker",
-
   "hero": {
     "headline": "Securing Systems. Exposing Weaknesses. Protecting What Matters.",
     "subheadline": "Computer Science graduate with a strong interest in cybersecurity and offensive security. I am passionate about exploring how digital systems break so I can help teams build them back stronger."
   },
-
   "about": {
     "bio": "Computer Science graduate with a strong interest in cybersecurity and offensive security. I am passionate about exploring how digital systems break so I can help teams build them back stronger."
   },
-
   "services": [
     {
       "id": 1,
@@ -32,7 +29,6 @@
       "description": "Clear, executive-ready security reports that translate technical findings into measurable business risk. Each report includes CVSS-scored vulnerability details, evidence-backed proof-of-concept, severity ratings, and prioritized remediation roadmaps."
     }
   ],
-
   "education": [
     {
       "degree": "BSc Computer Science",
@@ -41,7 +37,6 @@
       "gpa": "7.33 / 10"
     }
   ],
-
   "certifications": [
     {
       "name": "Offenso Certified Security Professional (OCSP)",
@@ -54,16 +49,7 @@
       "year": "2025"
     }
   ],
-
-  "contact": {
-    "email": "pavankmkochi@gmail.com",
-    "location": "Kochi, Kerala, India",
-    "github": "https://github.com/pavanKM",
-    "linkedin": "https://linkedin.com/in/pavanKM",
-    "tryhackme": "https://tryhackme.com/p/pavanKM"
-  },
-
   "heroImage": "/assets/hero-front.png",
   "heroImageBack": "/assets/hero-back.webp",
-  "resumeUrl": "https://drive.google.com/your-file-id/view?usp=sharing"
+  "resumeUrl": "https://drive.google.com/file/d/1nYGs1VygrQhMLmPSbv2urGPKOvoytebk/view?usp=sharing"
 }
