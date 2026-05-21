@@ -90,7 +90,7 @@ const Hero = () => {
               src={profile.heroImage}
               alt={profile.name}
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
               className="w-full h-full object-contain object-bottom relative z-20 transition-transform duration-700 group-hover:scale-108 drop-shadow-2xl"
             />
