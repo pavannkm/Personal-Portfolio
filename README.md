@@ -33,7 +33,7 @@ npm run dev
 ```
 
 ### 4. Open in browser
-Navigate to `http://localhost:5173` in your web browser.
+Navigate to `[https://pavankm.vercel.app/](https://pavankm.vercel.app/)` in your web browser.
 
 ## 📫 Contact
 - **Email**: pavankm146@gmail.com
