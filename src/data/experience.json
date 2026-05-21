@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "type": "experience",
+    "role": "Cybersecurity Intern",
+    "company": "Hackware Security Solutions LLP",
+    "location": "Kochi, Kerala",
+    "duration": "Oct 2025 – Apr 2026",
+    "highlights": [
+      "Conducted end-to-end VAPT and reconnaissance on web apps and network infrastructure, successfully uncovering high-severity flaws (SQLi, XSS, IDOR) using tools like Burp Suite and Nmap.",
+      "Assisted senior team members in validating exploits and authored detailed, CVSS-scored penetration testing reports with proof-of-concept evidence.",
+      "Coordinated 'LOOP: Last One On Peak,' an attack and persistence-based hacking competition simulating real-world adversary tactics.",
+      "Provided technical infrastructure assistance and support for various cybersecurity events, including Capture The Flag (CTF) challenges and specialized hardware lab workshops."
+    ]
+  },
+  {
+    "id": 2,
+    "type": "experience",
+    "role": "Cybersecurity Student Trainee",
+    "company": "Offenso Hackers Academy",
+    "location": "Kochi, Kerala",
+    "duration": "Aug 2025 – Jan 2026",
+    "highlights": [
+      "Completed intensive, lab-based training covering ethical hacking methodologies, network penetration testing, and web application security under the OCSP curriculum.",
+      "Gained hands-on proficiency with offensive security tools including Metasploit, Burp Suite, Nmap, Wireshark, Gobuster, and WPScan across controlled lab environments.",
+      "Studied Active Directory attack paths including enumeration, Kerberoasting, Pass-the-Hash, and privilege escalation techniques within Windows environments.",
+      "Earned the Offenso Certified Security Professional (OCSP) certification upon successful completion of practical examination."
+    ]
+  }
+]

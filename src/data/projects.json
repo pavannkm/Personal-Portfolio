@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Authorized Web Application VAPT",
+    "description": "Conducted a full-scope, authorized penetration test against a live web application following OWASP Testing Guide v4 methodology. Identified 3 high-severity and 5 medium-severity vulnerabilities including SQLi, XSS, and IDOR, and delivered a formal pentest report with CVSS v3.1-scored findings.",
+    "techStack": ["Burp Suite", "OWASP ZAP", "Nmap", "OWASP Top 10", "CVSS v3.1"],
+    "githubLink": "#",
+    "liveLink": "#"
+  },
+  {
+    "id": 2,
+    "title": "SafeLine Web Application Firewall",
+    "description": "Set up a Damn Vulnerable Web Application (DVWA) and simulated SQL injection attacks against it, then deployed SafeLine WAF to detect and block those attacks. Configured rate limiting to prevent DoS flooding, and analysed WAF logs to interpret attack patterns and defensive responses.",
+    "techStack": ["DVWA", "SafeLine WAF", "SQL Injection", "Rate Limiting", "Docker", "Linux"],
+    "githubLink": "#",
+    "liveLink": "#"
+  },
+  {
+    "id": 3,
+    "title": "Professional Portfolio",
+    "description": "Built a personal professional portfolio website that showcases skills, experience, and projects. Features a dark cybersecurity aesthetic with animated particle backgrounds, glassmorphic UI, and fully responsive design.",
+    "techStack": ["React", "Vite", "Tailwind CSS", "Framer Motion", "Three.js"],
+    "githubLink": "#",
+    "liveLink": "#"
+  },
+  {
+    "id": 4,
+    "title": "Active Directory Attack Path Simulation",
+    "description": "Simulated a real-world Active Directory compromise scenario in a lab environment, covering enumeration, Kerberoasting, Pass-the-Hash, and privilege escalation techniques. Documented the full attack chain and corresponding defensive mitigations.",
+    "techStack": ["Kali Linux", "BloodHound", "Mimikatz", "Impacket", "Windows Server"],
+    "githubLink": "#",
+    "liveLink": "#"
+  }
+]

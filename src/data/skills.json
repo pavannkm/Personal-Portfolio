@@ -1,0 +1,67 @@
+[
+  {
+    "category": "Testing & Assessment Tools",
+    "icon": "ShieldAlert",
+    "skills": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Nmap",
+      "WPScan",
+      "Gobuster",
+      "Nikto",
+      "Metasploit Framework",
+      "SQLmap"
+    ]
+  },
+  {
+    "category": "Network & Traffic Analysis",
+    "icon": "Network",
+    "skills": [
+      "Wireshark",
+      "Nmap",
+      "Netcat",
+      "Tcpdump",
+      "VirusTotal",
+      "Shodan"
+    ]
+  },
+  {
+    "category": "Methodologies & Frameworks",
+    "icon": "BookOpen",
+    "skills": [
+      "OWASP Top 10",
+      "MITRE ATT&CK",
+      "VAPT Lifecycle"
+    ]
+  },
+  {
+    "category": "Platforms & Environments",
+    "icon": "Monitor",
+    "skills": [
+      "Kali Linux",
+      "Windows Server",
+      "Active Directory",
+      "Linux",
+      "VirtualBox",
+      "ProxMox"
+    ]
+  },
+  {
+    "category": "Security Operations",
+    "icon": "Eye",
+    "skills": [
+      "SIEM (Log Analysis)",
+      "Wazuh",
+      "Splunk"
+    ]
+  },
+  {
+    "category": "Programming & Scripting",
+    "icon": "Code2",
+    "skills": [
+      "Python",
+      "Bash",
+      "SQL"
+    ]
+  }
+]

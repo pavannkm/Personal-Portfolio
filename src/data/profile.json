@@ -1,0 +1,69 @@
+{
+  "name": "Pavan KM",
+  "role": "Cybersecurity Professional",
+  "tagline": "VAPT Specialist · Web Application Security · Ethical Hacker",
+
+  "hero": {
+    "headline": "Securing Systems. Exposing Weaknesses. Protecting What Matters.",
+    "subheadline": "Computer Science graduate with a strong interest in cybersecurity and offensive security. I am passionate about exploring how digital systems break so I can help teams build them back stronger."
+  },
+
+  "about": {
+    "bio": "Computer Science graduate with a strong interest in cybersecurity and offensive security. I am passionate about exploring how digital systems break so I can help teams build them back stronger."
+  },
+
+  "services": [
+    {
+      "id": 1,
+      "icon": "ShieldCheck",
+      "title": "Vulnerability Assessment & Penetration Testing",
+      "description": "End-to-end VAPT engagements covering reconnaissance, exploitation, and post-exploitation analysis. I systematically probe web applications and network infrastructure using OWASP methodologies and industry-standard tooling to surface exploitable vulnerabilities before threat actors do."
+    },
+    {
+      "id": 2,
+      "icon": "Globe",
+      "title": "Web Application Security",
+      "description": "In-depth security reviews of web applications targeting the OWASP Top 10 and beyond — including authentication flaws, injection vulnerabilities, broken access controls, and insecure API surfaces. Each assessment is paired with developer-ready remediation guidance."
+    },
+    {
+      "id": 3,
+      "icon": "FileText",
+      "title": "Security Reporting & Risk Analysis",
+      "description": "Clear, executive-ready security reports that translate technical findings into measurable business risk. Each report includes CVSS-scored vulnerability details, evidence-backed proof-of-concept, severity ratings, and prioritized remediation roadmaps."
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "BSc Computer Science",
+      "institution": "University of Calicut",
+      "period": "Sep 2022 – Mar 2025",
+      "gpa": "7.33 / 10"
+    }
+  ],
+
+  "certifications": [
+    {
+      "name": "Offenso Certified Security Professional (OCSP)",
+      "issuer": "Offenso Hackers Academy",
+      "year": "2026"
+    },
+    {
+      "name": "Foundations of Cybersecurity",
+      "issuer": "Google",
+      "year": "2025"
+    }
+  ],
+
+  "contact": {
+    "email": "pavankmkochi@gmail.com",
+    "location": "Kochi, Kerala, India",
+    "github": "https://github.com/pavanKM",
+    "linkedin": "https://linkedin.com/in/pavanKM",
+    "tryhackme": "https://tryhackme.com/p/pavanKM"
+  },
+
+  "heroImage": "/assets/hero-front.png",
+  "heroImageBack": "/assets/hero-back.webp",
+  "resumeUrl": "https://drive.google.com/your-file-id/view?usp=sharing"
+}
