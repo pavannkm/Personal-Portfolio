@@ -16,22 +16,26 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pavan KM | Cybersecurity & VAPT Specialist" />
     <meta property="og:description" content="Portfolio of Pavan KM — VAPT Specialist and Ethical Hacker based in Kochi, Kerala." />
-    <meta property="og:image" content="/assets/hero-front.png" />
+    <meta property="og:image" content="/assets/hero-front.webp" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Pavan KM | Cybersecurity & VAPT Specialist" />
     <meta name="twitter:description" content="VAPT Specialist and Ethical Hacker — Portfolio of Pavan KM." />
-    <meta name="twitter:image" content="/assets/hero-front.png" />
+    <meta name="twitter:image" content="/assets/hero-front.webp" />
 
     <!-- Preload above-the-fold hero images for fast first paint -->
-    <link rel="preload" as="image" href="/assets/hero-front.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/hero-front.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/assets/hero-back.webp" fetchpriority="low" />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

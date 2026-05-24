@@ -113,7 +113,7 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="flex-1 w-full py-14 lg:py-24 px-4 relative overflow-hidden">
+    <section id="projects" className="flex-1 w-full py-14 lg:py-24 px-4 relative overflow-hidden scroll-mt-16">
       <ParticleBackground />
 
       {/* Ambient glow */}

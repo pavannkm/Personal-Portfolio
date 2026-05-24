@@ -44,7 +44,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex-1 w-full py-14 lg:py-24 px-4 relative overflow-hidden">
+    <section id="contact" className="flex-1 w-full py-14 lg:py-24 px-4 relative overflow-hidden scroll-mt-16">
       <ParticleBackground />
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeader title="Let's" highlight="Connect" color="primary" />

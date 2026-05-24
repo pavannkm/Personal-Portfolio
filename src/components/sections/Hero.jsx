@@ -1,13 +1,23 @@
 
 import { motion } from 'framer-motion';
 import { Download, ChevronRight, Mail } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
 import profile from '../../data/profile.json';
 import ParticleBackground from '../ParticleBackground';
 
+/* Smooth-scroll helper — 64px offset for the fixed navbar */
+const scrollTo = (id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - 64;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+};
+
 const Hero = () => {
   return (
-    <section id="home" className="flex-1 w-full flex flex-col justify-center items-center px-4 py-12 lg:py-0 relative overflow-hidden">
+    <section
+      id="home"
+      className="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center px-4 py-16 lg:py-0 relative overflow-hidden"
+    >
       {/* Three.js particle backdrop — contained to this section */}
       <ParticleBackground />
 
@@ -36,7 +46,7 @@ const Hero = () => {
             {profile.hero.subheadline}
           </p>
 
-          {/* Buttons — elegant wrapped flex row */}
+          {/* Buttons */}
           <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-3">
             <a
               href={profile.resumeUrl}
@@ -47,19 +57,19 @@ const Hero = () => {
               <Download size={18} />
               Download Resume
             </a>
-            <NavLink
-              to="/projects"
-              className="pill-button bg-white/5 border border-white/10 text-white hover:bg-white/10 flex items-center justify-center gap-2"
+            <button
+              onClick={() => scrollTo('projects')}
+              className="pill-button bg-white/5 border border-white/10 text-white hover:bg-white/10 flex items-center justify-center gap-2 cursor-pointer"
             >
               View Work <ChevronRight size={18} />
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className="pill-button bg-white/5 border border-white/10 text-white hover:bg-white/10 flex items-center justify-center gap-2 transition-all"
+            </button>
+            <button
+              onClick={() => scrollTo('contact')}
+              className="pill-button bg-white/5 border border-white/10 text-white hover:bg-white/10 flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <Mail size={18} />
               Connect Me
-            </NavLink>
+            </button>
           </div>
         </motion.div>
 
