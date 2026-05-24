@@ -38,42 +38,49 @@ const AboutPanel = () => (
 
 /* ─── Bento Box: Education ──────────────────────────────────────────── */
 const EducationPanel = () => (
-  <div className="h-full flex flex-col">
-    <PanelHeader title="Academic Path" icon={GraduationCap} />
+  <div className="h-full flex flex-col justify-between">
+    <PanelHeader title="Education" icon={GraduationCap} />
+    
     <div className="flex-1 flex flex-col justify-center py-2">
       {profile.education.map((edu, idx) => (
-        <div key={idx} className="relative pl-6 group">
-          {/* Vertical timeline line accent */}
-          <div className="absolute left-[7px] top-1.5 bottom-1.5 w-[2px] bg-gradient-to-b from-primary/50 to-primary/5" />
-          
-          {/* Glowing tech node */}
-          <div className="absolute left-0 top-1.5 w-[16px] h-[16px] rounded-full bg-background border-2 border-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10 shadow-[0_0_8px_rgba(6,182,212,0.4)]">
-            <div className="w-[6px] h-[6px] rounded-full bg-primary animate-pulse" />
-          </div>
+        <div 
+          key={idx} 
+          className="relative group border border-white/5 bg-white/[0.02] p-5 rounded-2xl overflow-hidden hover:border-primary/20 hover:bg-white/[0.04] transition-all duration-300 flex flex-col gap-4"
+        >
+          {/* Subtle tech dot-grid background and top cyan line to match other high-tech panels */}
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.01)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover:via-primary/50 transition-all duration-300" />
 
-          <div className="space-y-3">
-            {/* Institution Header */}
-            <div>
-              <h4 className="font-bold text-white text-base sm:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
+          {/* Header Row: Icon + College & Degree */}
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+              <GraduationCap size={22} className="text-primary" />
+            </div>
+            <div className="min-w-0">
+              <h4 className="font-extrabold text-sm sm:text-base text-white leading-snug tracking-wide group-hover:text-primary transition-colors duration-300">
                 {edu.institution}
               </h4>
-              <p className="text-primary text-xs font-bold uppercase tracking-wider mt-1">
+              <p className="text-primary text-xs font-bold uppercase tracking-wider mt-1.5">
                 {edu.degree}
               </p>
             </div>
+          </div>
 
-            {/* Academic stats & timeline info */}
-            <div className="flex flex-wrap items-center gap-3 text-xs">
-              <span className="bg-white/5 border border-white/10 text-text-muted px-2.5 py-1 rounded-md">
-                {edu.period}
-              </span>
-              
-              {edu.gpa && (
-                <span className="bg-primary/10 border border-primary/20 text-primary px-2.5 py-1 rounded-md font-mono font-bold tracking-wider uppercase shadow-[0_0_10px_rgba(6,182,212,0.05)]">
-                  GPA: {edu.gpa}
-                </span>
-              )}
+          {/* Tech Stats Row: Timeline & GPA in dashboard capsules */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3.5 border-t border-white/5 text-xs">
+            {/* Timeline capsule */}
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-text-muted">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+              <span className="font-medium">{edu.period}</span>
             </div>
+
+            {/* GPA Score capsule */}
+            {edu.gpa && (
+              <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-primary/5 border border-primary/10 text-primary shadow-[0_0_10px_rgba(6,182,212,0.03)]">
+                <span className="font-bold uppercase tracking-wider text-[10px]">Academic Score</span>
+                <span className="font-mono font-extrabold text-xs">{edu.gpa}</span>
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -87,7 +94,7 @@ const ExperiencePanel = () => {
 
   return (
     <div className="h-full flex flex-col">
-      <PanelHeader title="Work History" icon={Briefcase} />
+      <PanelHeader title="Experience" icon={Briefcase} />
       <div className="relative pl-6">
         {/* Timeline line */}
         <div className="absolute left-[7px] top-3 bottom-3 w-[1px] bg-gradient-to-b from-primary/50 via-primary/15 to-transparent" />
