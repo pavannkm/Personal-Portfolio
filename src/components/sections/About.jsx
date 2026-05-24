@@ -40,33 +40,36 @@ const AboutPanel = () => (
 const EducationPanel = () => (
   <div className="h-full flex flex-col">
     <PanelHeader title="Academic Path" icon={GraduationCap} />
-    <div className="flex flex-col gap-4 flex-1 justify-center">
+    <div className="flex-1 flex flex-col justify-center py-2">
       {profile.education.map((edu, idx) => (
-        <div 
-          key={idx} 
-          className="glass-panel p-5 rounded-2xl border border-white/5 hover:border-primary/20 transition-all duration-300 group flex items-start gap-4 relative overflow-hidden"
-        >
-          {/* Subtle tech glow inside panel */}
-          <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full filter blur-xl pointer-events-none group-hover:bg-primary/10 transition-colors duration-300" />
+        <div key={idx} className="relative pl-6 group">
+          {/* Vertical timeline line accent */}
+          <div className="absolute left-[7px] top-1.5 bottom-1.5 w-[2px] bg-gradient-to-b from-primary/50 to-primary/5" />
           
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
-            <GraduationCap size={18} className="text-primary" />
+          {/* Glowing tech node */}
+          <div className="absolute left-0 top-1.5 w-[16px] h-[16px] rounded-full bg-background border-2 border-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10 shadow-[0_0_8px_rgba(6,182,212,0.4)]">
+            <div className="w-[6px] h-[6px] rounded-full bg-primary animate-pulse" />
           </div>
-          
-          <div className="flex-1 min-w-0 flex flex-col justify-between">
+
+          <div className="space-y-3">
+            {/* Institution Header */}
             <div>
-              <h4 className="font-bold text-sm sm:text-base text-white leading-snug group-hover:text-primary transition-colors duration-300">
+              <h4 className="font-bold text-white text-base sm:text-lg group-hover:text-primary transition-colors duration-300 leading-snug">
                 {edu.institution}
               </h4>
-              <p className="text-primary text-xs font-semibold tracking-wider uppercase mt-1">
+              <p className="text-primary text-xs font-bold uppercase tracking-wider mt-1">
                 {edu.degree}
               </p>
             </div>
-            
-            <div className="flex items-center justify-between mt-3.5 pt-3.5 border-t border-white/5">
-              <span className="text-xs text-text-muted font-medium">{edu.period}</span>
+
+            {/* Academic stats & timeline info */}
+            <div className="flex flex-wrap items-center gap-3 text-xs">
+              <span className="bg-white/5 border border-white/10 text-text-muted px-2.5 py-1 rounded-md">
+                {edu.period}
+              </span>
+              
               {edu.gpa && (
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 uppercase">
+                <span className="bg-primary/10 border border-primary/20 text-primary px-2.5 py-1 rounded-md font-mono font-bold tracking-wider uppercase shadow-[0_0_10px_rgba(6,182,212,0.05)]">
                   GPA: {edu.gpa}
                 </span>
               )}
