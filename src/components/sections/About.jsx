@@ -27,7 +27,7 @@ const AboutPanel = () => (
       {profile.about.bio}
     </p>
     <div className="mt-6 flex flex-wrap gap-3">
-       {["VAPT", "Red Teaming", "Threat Hunting", "Secure Code Review"].map((tag, i) => (
+       {["VAPT", "Red Teaming"].map((tag, i) => (
          <span key={i} className="px-3 py-1.5 bg-primary/5 border border-primary/10 rounded-lg text-xs font-semibold text-primary/90 flex items-center gap-1.5">
            <CheckCircle2 size={12} className="text-primary/60" /> {tag}
          </span>
@@ -40,19 +40,37 @@ const AboutPanel = () => (
 const EducationPanel = () => (
   <div className="h-full flex flex-col">
     <PanelHeader title="Academic Path" icon={GraduationCap} />
-    <div className="flex flex-col gap-5 flex-1 justify-center">
+    <div className="flex flex-col gap-4 flex-1 justify-center">
       {profile.education.map((edu, idx) => (
-        <div key={idx} className="group relative pl-4 border-l-2 border-white/10 hover:border-primary/50 transition-colors">
-          <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-background border-2 border-primary/50 group-hover:bg-primary transition-colors" />
-          <h4 className="font-bold text-white text-base leading-snug">{edu.institution}</h4>
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mt-1 mb-2">{edu.degree}</p>
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-text-muted">{edu.period}</span>
-            {edu.gpa && (
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-text-muted border border-white/10 uppercase">
-                GPA: {edu.gpa}
-              </span>
-            )}
+        <div 
+          key={idx} 
+          className="glass-panel p-5 rounded-2xl border border-white/5 hover:border-primary/20 transition-all duration-300 group flex items-start gap-4 relative overflow-hidden"
+        >
+          {/* Subtle tech glow inside panel */}
+          <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full filter blur-xl pointer-events-none group-hover:bg-primary/10 transition-colors duration-300" />
+          
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
+            <GraduationCap size={18} className="text-primary" />
+          </div>
+          
+          <div className="flex-1 min-w-0 flex flex-col justify-between">
+            <div>
+              <h4 className="font-bold text-sm sm:text-base text-white leading-snug group-hover:text-primary transition-colors duration-300">
+                {edu.institution}
+              </h4>
+              <p className="text-primary text-xs font-semibold tracking-wider uppercase mt-1">
+                {edu.degree}
+              </p>
+            </div>
+            
+            <div className="flex items-center justify-between mt-3.5 pt-3.5 border-t border-white/5">
+              <span className="text-xs text-text-muted font-medium">{edu.period}</span>
+              {edu.gpa && (
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 uppercase">
+                  GPA: {edu.gpa}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       ))}
@@ -129,7 +147,7 @@ const ExperiencePanel = () => {
 /* ─── Bento Box: Certifications ─────────────────────────────────────── */
 const CertificationsPanel = () => (
   <div className="h-full flex flex-col">
-    <PanelHeader title="Industry Validations" icon={Award} />
+    <PanelHeader title="Certifications" icon={Award} />
     <div className="flex flex-col gap-4 flex-1">
       {profile.certifications.map((cert, idx) => (
         <div key={idx} className="glass-panel p-4 rounded-2xl border border-white/5 hover:border-primary/20 transition-all group flex items-start gap-4">

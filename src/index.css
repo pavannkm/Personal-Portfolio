@@ -42,6 +42,27 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight text-white;
   }
+
+  /* Prevent accidental text selection on mobile when tapping */
+  body, h1, h2, h3, h4, h5, h6, p, span, a, button, li, ul, div, section {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Enforce standard text selection inside inputs and specifically copyable tags */
+  input, textarea, [contenteditable="true"], .allow-select, .allow-select * {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  /* Disable native tap highlight gray box on mobile links/buttons */
+  a, button, input, textarea, select, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 /* Custom Glassmorphism Utilities */

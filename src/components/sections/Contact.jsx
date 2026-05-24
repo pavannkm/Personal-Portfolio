@@ -55,21 +55,21 @@ const Contact = () => {
           viewport={{ once: true }}
           className="glass-panel p-6 md:p-12 rounded-3xl relative overflow-hidden"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 relative z-10">
             <div>
               <h3 className="text-3xl font-bold mb-6">Get in touch</h3>
-              <p className="text-text-muted text-lg mb-12 leading-relaxed">
+              <p className="text-text-muted text-base sm:text-lg mb-6 lg:mb-12 leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether it's a security consultation or a full-stack build, let's talk.
               </p>
 
-              <div className="flex flex-col gap-6 mb-12">
+              <div className="flex flex-col gap-6 mb-6 lg:mb-12">
                 <a href="mailto:pavankm146@gmail.com" className="flex items-center gap-4 group">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                     <Mail className="text-primary" size={24} />
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-widest text-text-muted mb-1">Email Me</p>
-                    <span className="font-bold text-white group-hover:text-primary transition-colors">pavankm146@gmail.com</span>
+                    <span className="font-bold text-white group-hover:text-primary transition-colors allow-select">pavankm146@gmail.com</span>
                   </div>
                 </a>
               </div>
@@ -95,15 +95,15 @@ const Contact = () => {
             </div>
 
             <div>
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-semibold text-text-muted ml-2">Name</label>
                     <input
                       type="text" id="name" name="name"
                       value={formData.name} onChange={handleChange}
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary transition-colors placeholder:text-white/20"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 lg:px-6 lg:py-4 text-white focus:outline-none focus:border-primary transition-colors placeholder:text-white/20"
                       placeholder="Name"
                     />
                   </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                       type="email" id="email" name="email"
                       value={formData.email} onChange={handleChange}
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary transition-colors placeholder:text-white/20"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 lg:px-6 lg:py-4 text-white focus:outline-none focus:border-primary transition-colors placeholder:text-white/20"
                       placeholder="email@example.com"
                     />
                   </div>
@@ -123,8 +123,8 @@ const Contact = () => {
                   <textarea
                     id="message" name="message"
                     value={formData.message} onChange={handleChange}
-                    required rows={5}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary transition-colors resize-none placeholder:text-white/20"
+                    required rows={4}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 lg:px-6 lg:py-4 text-white focus:outline-none focus:border-primary transition-colors resize-none placeholder:text-white/20"
                     placeholder="How can I help you?"
                   />
                 </div>
@@ -132,7 +132,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="pill-button bg-primary text-background hover:bg-primary/90 flex items-center justify-center gap-3 disabled:opacity-70 mt-4 group"
+                  className="pill-button bg-primary text-background hover:bg-primary/90 flex items-center justify-center gap-3 disabled:opacity-70 mt-2 lg:mt-4 group"
                 >
                   {isSubmitting ? 'Sending...' : (
                     <>
