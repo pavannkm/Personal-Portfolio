@@ -1,233 +1,219 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { User, Briefcase, GraduationCap, Award, MapPin, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { User, Briefcase, GraduationCap, Award, MapPin, ChevronRight, CheckCircle2, Shield, Crosshair, Server, Globe } from 'lucide-react';
 import profile from '../../data/profile.json';
 import experience from '../../data/experience.json';
 import SectionHeader from '../SectionHeader';
 import ParticleBackground from '../ParticleBackground';
 
-/* ─── Shared Components ────────────────────────────────────────────── */
 const PanelHeader = ({ title, icon: Icon }) => (
-  <div className="flex items-center gap-3 mb-6">
-    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20">
-      {Icon && <Icon size={20} className="text-primary" />}
+  <div className="flex items-center gap-4 mb-8 pb-4 border-b border-white/5">
+    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+      {Icon && <Icon size={24} className="text-primary" />}
     </div>
-    <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
+    <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
   </div>
 );
 
-/* ─── Bento Box: About Me ───────────────────────────────────────────── */
-const AboutPanel = () => (
-  <div className="h-full flex flex-col justify-center">
-    <PanelHeader title="About Me" icon={User} />
-    <h4 className="text-2xl font-bold text-white mb-4 leading-tight">
-      Cybersecurity Professional specializing in <span className="text-primary">Offensive Security</span>
-    </h4>
-    <p className="text-text-muted leading-relaxed text-base">
-      {profile.about.bio}
-    </p>
-    <div className="mt-6 flex flex-wrap gap-3">
-       {["VAPT", "Red Teaming"].map((tag, i) => (
-         <span key={i} className="px-3 py-1.5 bg-primary/5 border border-primary/10 rounded-lg text-xs font-semibold text-primary/90 flex items-center gap-1.5">
-           <CheckCircle2 size={12} className="text-primary/60" /> {tag}
-         </span>
-       ))}
-    </div>
-  </div>
-);
-
-/* ─── Bento Box: Education ──────────────────────────────────────────── */
-const EducationPanel = () => (
-  <div className="h-full flex flex-col justify-between">
-    <PanelHeader title="Education" icon={GraduationCap} />
+// Profile
+const ProfileSection = () => (
+  <div className="glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden group hover:border-primary/20 transition-all duration-500">
+    <PanelHeader title="Profile" icon={User} />
     
-    <div className="flex-1 flex flex-col justify-center py-2">
-      {profile.education.map((edu, idx) => (
-        <div 
-          key={idx} 
-          className="relative group border border-white/5 bg-white/[0.02] p-5 rounded-2xl overflow-hidden hover:border-primary/20 hover:bg-white/[0.04] transition-all duration-300 flex flex-col gap-4"
-        >
-          {/* Subtle tech dot-grid background and top cyan line to match other high-tech panels */}
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.01)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
-          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover:via-primary/50 transition-all duration-300" />
-
-          {/* Header Row: Icon + College & Degree */}
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary/20 transition-all duration-300">
-              <GraduationCap size={22} className="text-primary" />
-            </div>
-            <div className="min-w-0">
-              <h4 className="font-extrabold text-sm sm:text-base text-white leading-snug tracking-wide group-hover:text-primary transition-colors duration-300">
-                {edu.institution}
-              </h4>
-              <p className="text-primary text-xs font-bold uppercase tracking-wider mt-1.5">
-                {edu.degree}
-              </p>
-            </div>
-          </div>
-
-          {/* Tech Stats Row: Timeline & GPA in dashboard capsules */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3.5 border-t border-white/5 text-xs">
-            {/* Timeline capsule */}
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-text-muted">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-              <span className="font-medium">{edu.period}</span>
-            </div>
-
-            {/* GPA Score capsule */}
-            {edu.gpa && (
-              <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-primary/5 border border-primary/10 text-primary shadow-[0_0_10px_rgba(6,182,212,0.03)]">
-                <span className="font-bold uppercase tracking-wider text-[10px]">Academic Score</span>
-                <span className="font-mono font-extrabold text-xs">{edu.gpa}</span>
-              </div>
-            )}
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div className="md:col-span-3">
+        <h4 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-6">
+          Cybersecurity Professional <br/>
+          specializing in <span className="text-primary">Offensive Security</span>
+        </h4>
+        <p className="text-text-muted leading-relaxed text-base sm:text-lg mb-8">
+          {profile.about.bio}
+        </p>
+        <div className="flex flex-wrap gap-3">
+           {["VAPT", "Red Teaming"].map((tag, i) => (
+             <span key={i} className="px-4 py-2 bg-primary/5 border border-primary/10 rounded-xl text-sm font-semibold text-primary/90 flex items-center gap-2">
+               <CheckCircle2 size={16} className="text-primary/60" /> {tag}
+             </span>
+           ))}
         </div>
-      ))}
+      </div>
+
+      <div className="md:col-span-2 border-t md:border-t-0 md:border-l border-white/5 pt-8 md:pt-0 md:pl-8 flex flex-col justify-center space-y-6">
+        {[
+          { label: "Role Focus", value: "VAPT & Offensive Security", icon: Shield },
+          { label: "Methodology", value: "OWASP & OSSTMM", icon: Crosshair },
+          { label: "Targets", value: "Web, Network, APIs", icon: Server },
+          { label: "Location", value: "Kerala, India", icon: Globe }
+        ].map((stat, idx) => (
+          <div key={idx} className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/5 shrink-0 group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors">
+              <stat.icon size={20} className="text-primary/70" />
+            </div>
+            <div>
+              <p className="text-text-muted text-xs font-semibold uppercase tracking-wider mb-0.5">{stat.label}</p>
+              <p className="text-white font-extrabold text-sm">{stat.value}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 );
 
-/* ─── Bento Box: Experience ─────────────────────────────────────────── */
-const ExperiencePanel = () => {
+const ExperienceSection = () => {
   const [expandedId, setExpandedId] = useState(null);
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden hover:border-primary/20 transition-all duration-500">
       <PanelHeader title="Experience" icon={Briefcase} />
-      <div className="relative pl-6">
-        {/* Timeline line */}
-        <div className="absolute left-[7px] top-3 bottom-3 w-[1px] bg-gradient-to-b from-primary/50 via-primary/15 to-transparent" />
-
-        <div className="space-y-6">
-          {experience.map((item) => {
-            const isExpanded = expandedId === item.id;
-            return (
-              <div key={item.id} className="relative group">
-                {/* Timeline Dot */}
-                <div className="absolute -left-[23px] top-1.5 w-4 h-4 rounded-full bg-background border-2 border-primary flex items-center justify-center group-hover:scale-110 transition-transform z-10">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+      
+      <div className="space-y-6">
+        {experience.map((item) => {
+          const isExpanded = expandedId === item.id;
+          return (
+            <div key={item.id} className="relative group">
+              <div 
+                onClick={() => setExpandedId(isExpanded ? null : item.id)}
+                className="bg-black/20 p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-primary/20 hover:bg-black/30 transition-all duration-300 cursor-pointer select-none"
+              >
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <h4 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{item.role}</h4>
+                      <ChevronRight 
+                        size={18} 
+                        className={`text-primary/40 group-hover:text-primary transition-transform duration-300 shrink-0 ${
+                          isExpanded ? 'rotate-90 text-primary' : 'group-hover:translate-x-1'
+                        }`} 
+                      />
+                    </div>
+                    <p className="text-primary font-bold tracking-wide text-sm mt-1">{item.company}</p>
+                  </div>
+                  <div className="flex flex-wrap items-center text-sm text-text-muted gap-3 md:justify-end">
+                    <span className="bg-white/5 px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
+                      <MapPin size={14} className="text-primary/70"/> {item.location}
+                    </span>
+                    <span className="bg-primary/10 text-primary px-3 py-1.5 rounded-lg border border-primary/20 font-mono font-bold text-xs">
+                      {item.duration}
+                    </span>
+                  </div>
                 </div>
-
-                <div 
-                  onClick={() => setExpandedId(isExpanded ? null : item.id)}
-                  className="glass-panel p-4 sm:p-5 rounded-2xl border border-white/5 hover:border-primary/25 transition-all duration-300 cursor-pointer select-none"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-primary transition-colors">{item.role}</h4>
-                        <ChevronRight 
-                          size={14} 
-                          className={`text-primary/40 group-hover:text-primary transition-transform duration-300 shrink-0 ${
-                            isExpanded ? 'rotate-90 text-primary' : 'group-hover:translate-x-1'
-                          }`} 
-                        />
-                      </div>
-                      <p className="text-primary font-semibold text-xs sm:text-sm mt-0.5">{item.company}</p>
-                    </div>
-                    <div className="flex items-center text-xs text-text-muted gap-3">
-                      <span className="bg-white/5 px-2 py-1 rounded-md border border-white/10">{item.duration}</span>
-                      <span className="flex items-center gap-1 hidden sm:flex"><MapPin size={12} /> {item.location}</span>
-                    </div>
-                  </div>
-
-                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    isExpanded ? 'max-h-[500px] opacity-100 mt-4 pt-4 border-t border-white/5' : 'max-h-0 opacity-0'
-                  }`}>
-                    <ul className="space-y-2.5">
-                      {item.highlights.map((point, bIdx) => (
-                        <li key={bIdx} className="flex gap-3 text-xs sm:text-sm text-text-muted leading-relaxed">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                
+                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  isExpanded ? 'max-h-[500px] opacity-100 mt-5 pt-5 border-t border-white/5' : 'max-h-0 opacity-0'
+                }`}>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                    {item.highlights.map((point, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-3 text-sm text-text-muted leading-relaxed">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-/* ─── Bento Box: Certifications ─────────────────────────────────────── */
-const CertificationsPanel = () => (
-  <div className="h-full flex flex-col">
-    <PanelHeader title="Certifications" icon={Award} />
-    <div className="flex flex-col gap-4 flex-1">
-      {profile.certifications.map((cert, idx) => (
-        <div key={idx} className="glass-panel p-4 rounded-2xl border border-white/5 hover:border-primary/20 transition-all group flex items-start gap-4">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary/20 transition-all">
-            <Award size={18} className="text-primary" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <h4 className="font-bold text-sm text-white leading-snug group-hover:text-primary transition-colors">
-              {cert.name}
+// Education & Certifications
+const EducationAndCertsSection = () => (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    
+    {/* Education */}
+    <div className="glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden hover:border-primary/20 transition-all duration-500">
+      <PanelHeader title="Education" icon={GraduationCap} />
+      <div className="space-y-6">
+        {profile.education.map((edu, idx) => (
+          <div key={idx} className="group bg-black/20 p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-primary/20 transition-all">
+            <h4 className="font-bold text-white text-lg leading-snug group-hover:text-primary transition-colors duration-300">
+              {edu.degree}
             </h4>
-            <div className="flex items-center justify-between mt-2">
-              <p className="text-text-muted text-xs font-semibold">{cert.issuer}</p>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-text-muted uppercase tracking-wider">
-                {cert.year}
-              </span>
+            <p className="text-text-muted text-sm font-medium mt-1 mb-4">
+              {edu.institution}
+            </p>
+            <div className="flex items-center justify-between text-sm pt-5 border-t border-white/5">
+              <span className="text-text-muted bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 font-medium">{edu.period}</span>
+              {edu.gpa && (
+                <span className="font-mono px-3 py-1.5 rounded-lg bg-primary/10 text-primary border border-primary/20 font-bold uppercase text-xs">
+                  CGPA: {edu.gpa}
+                </span>
+              )}
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
+
+    {/* Certifications */}
+    <div className="glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden hover:border-primary/20 transition-all duration-500">
+      <PanelHeader title="Certifications" icon={Award} />
+      <div className="space-y-4">
+        {profile.certifications.map((cert, idx) => (
+          <div key={idx} className="bg-black/20 p-5 rounded-2xl border border-white/5 hover:border-primary/20 transition-all group flex items-center gap-5">
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover:bg-primary/20 group-hover:scale-105 transition-all shadow-inner">
+              <Award size={24} className="text-primary" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h4 className="font-bold text-base text-white leading-snug group-hover:text-primary transition-colors mb-1 truncate">
+                {cert.name}
+              </h4>
+              <div className="flex items-center justify-between mt-2">
+                <p className="text-text-muted text-sm font-medium">{cert.issuer}</p>
+                <span className="text-xs font-mono px-2 py-1 rounded-md bg-white/5 text-text-muted uppercase tracking-wider border border-white/5">
+                  {cert.year}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
   </div>
 );
 
-/* ─── Main Section: About (Bento Grid) ──────────────────────────────── */
 const About = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
   };
 
   return (
-    <section id="about" className="flex-1 w-full py-14 lg:py-24 px-4 relative overflow-hidden scroll-mt-16">
+    <section id="about" className="flex-1 w-full py-16 lg:py-28 px-4 relative overflow-hidden scroll-mt-16 bg-background">
       <ParticleBackground />
-      <div className="max-w-6xl mx-auto relative z-10">
-        <SectionHeader title="About" highlight="" color="primary" />
+      <div className="max-w-5xl mx-auto relative z-10">
+        <SectionHeader title="About" highlight="Me" color="primary" />
         
-        {/* Bento Box Grid */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex flex-col space-y-8 mt-12"
         >
-          {/* About Me Card - Spans 2 cols on lg, full on mobile/md */}
-          <motion.div variants={itemVariants} className="glass-panel p-6 sm:p-8 rounded-3xl lg:col-span-2 shadow-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
-            <AboutPanel />
+          <motion.div variants={itemVariants}>
+            <ProfileSection />
           </motion.div>
 
-          {/* Education Card - Spans 1 col */}
-          <motion.div variants={itemVariants} className="glass-panel p-6 sm:p-8 rounded-3xl md:col-span-1 shadow-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
-            <EducationPanel />
+          <motion.div variants={itemVariants}>
+            <ExperienceSection />
           </motion.div>
 
-          {/* Experience Card - Spans 2 cols on lg, full on mobile/md */}
-          <motion.div variants={itemVariants} className="glass-panel p-6 sm:p-8 rounded-3xl lg:col-span-2 shadow-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
-            <ExperiencePanel />
-          </motion.div>
-
-          {/* Certifications Card - Spans 1 col */}
-          <motion.div variants={itemVariants} className="glass-panel p-6 sm:p-8 rounded-3xl md:col-span-1 shadow-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
-            <CertificationsPanel />
+          <motion.div variants={itemVariants}>
+            <EducationAndCertsSection />
           </motion.div>
         </motion.div>
       </div>
