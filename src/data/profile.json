@@ -4,7 +4,7 @@
   "tagline": "VAPT Specialist · Web Application Security · Ethical Hacker",
   "hero": {
     "headline": "Securing Systems. Exposing Weaknesses. Protecting What Matters.",
-    "subheadline": "Computer Science graduate with a strong interest in cybersecurity and offensive security. I am passionate about exploring how digital systems break so I can help teams build them back stronger."
+    "subheadline": "Cybersecurity enthusiast with a hacker's curiosity and a defender's purpose."
   },
   "about": {
     "bio": "Computer Science graduate with a strong interest in cybersecurity and offensive security. I am passionate about exploring how digital systems break so I can help teams build them back stronger."
@@ -39,7 +39,7 @@
   ],
   "certifications": [
     {
-      "name": "Offenso Certified Security Professional (OCSP)",
+      "name": "Offenso Certified Security Professional",
       "issuer": "Offenso Hackers Academy",
       "year": "2026"
     },

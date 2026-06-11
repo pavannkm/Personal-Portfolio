@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, User, Wrench, Briefcase, Mail } from 'lucide-react';
+import { Home, User, Wrench, Briefcase, Mail, Sun, Moon } from 'lucide-react';
 
 /* ── Section definitions — id must match the section's id="…" attribute ── */
 const navLinks = [
-  { label: 'Home',     id: 'home',     icon: Home },
-  { label: 'About',    id: 'about',    icon: User },
-  { label: 'Skills',   id: 'skills',   icon: Wrench },
+  { label: 'Home', id: 'home', icon: Home },
+  { label: 'About', id: 'about', icon: User },
+  { label: 'Skills', id: 'skills', icon: Wrench },
   { label: 'Projects', id: 'projects', icon: Briefcase },
-  { label: 'Contact',  id: 'contact',  icon: Mail },
+  { label: 'Contact', id: 'contact', icon: Mail },
 ];
 
 /* Smooth-scroll helper — accounts for the 64px fixed navbar */
@@ -21,8 +21,14 @@ function scrollToSection(id) {
 }
 
 export default function Navbar() {
-  const [scrolled,       setScrolled]       = useState(false);
-  const [activeSection,  setActiveSection]  = useState('home');
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'light';
+    }
+    return 'light';
+  });
 
   /* ── Detect scroll position for navbar glass effect ── */
   useEffect(() => {
@@ -31,23 +37,33 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  /* ── Apply Light/Dark Class to HTML element ── */
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
   /* ── IntersectionObserver — highlights the section currently in view ── */
   useEffect(() => {
     const sectionIds = navLinks.map((l) => l.id);
-
     const observers = [];
-
-    // We keep a map of which sections are currently visible and how much
     const visibilityMap = {};
 
     const updateActiveSection = () => {
-      // Pick the section with the highest intersection ratio that's visible
-      let bestId   = activeSection;
+      let bestId = activeSection;
       let bestRatio = 0;
       for (const [id, ratio] of Object.entries(visibilityMap)) {
         if (ratio > bestRatio) {
           bestRatio = ratio;
-          bestId    = id;
+          bestId = id;
         }
       }
       setActiveSection(bestId);
@@ -63,7 +79,6 @@ export default function Navbar() {
           updateActiveSection();
         },
         {
-          // rootMargin pushes the top boundary below the navbar
           rootMargin: '-64px 0px -35% 0px',
           threshold: Array.from({ length: 21 }, (_, i) => i * 0.05),
         }
@@ -73,8 +88,7 @@ export default function Navbar() {
     });
 
     return () => observers.forEach((o) => o.disconnect());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [activeSection]);
 
   /* ── Click handler ── */
   const handleNavClick = useCallback((id) => {
@@ -84,14 +98,14 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Desktop Top App Bar ── */}
+      {/* ── Top App Bar (Visible on all screens) ── */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0,    opacity: 1  }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 hidden md:block
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300
           ${scrolled
-            ? 'bg-[#0d0d0d]/95 border-b border-white/5 shadow-glass'
+            ? 'bg-background/80 border-b border-border/30 shadow-sm backdrop-blur-md'
             : 'bg-transparent'
           }`}
       >
@@ -99,37 +113,72 @@ export default function Navbar() {
           {/* Logo — clicking scrolls back to top */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center group"
+            className="flex items-center group cursor-pointer"
             aria-label="Back to top"
           >
-            <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all duration-300">
-              <span className="font-bold text-xl text-primary">P</span>
+            <div className="relative w-10 h-10 rounded-xl bg-surface-glass border border-border/50 flex items-center justify-center transition-all duration-500 group-hover:border-cta/50 group-hover:shadow-[0_0_20px_var(--cta-glow)] shadow-sm group-hover:-translate-y-[1px]">
+              {/* Glass reflection gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 opacity-50 z-0 rounded-xl"></div>
+              {/* Inner glow accent */}
+              <div className="absolute -inset-px rounded-xl bg-gradient-to-tr from-cta/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+              <span className="font-display font-black text-xl text-text-main group-hover:text-cta transition-all duration-500 tracking-tighter relative z-10">
+                P<span className="text-cta">.</span>
+              </span>
             </div>
           </button>
 
-          <ul className="flex items-center gap-1">
-            {navLinks.map(({ label, id }) => {
-              const isActive = activeSection === id;
-              return (
-                <li key={id} className="relative">
-                  <button
-                    onClick={() => handleNavClick(id)}
-                    className={`relative px-6 py-2 text-sm font-semibold transition-all duration-300 block z-10 cursor-pointer
-                      ${isActive ? 'text-white' : 'text-text-muted hover:text-white'}`}
+          {/* Nav Actions */}
+          <div className="flex items-center gap-4">
+            {/* Desktop Navigation Links */}
+            <ul className="hidden md:flex items-center gap-1">
+              {navLinks.map(({ label, id }) => {
+                const isActive = activeSection === id;
+                return (
+                  <li key={id} className="relative">
+                    <button
+                      onClick={() => handleNavClick(id)}
+                      className={`relative px-6 py-2 text-sm font-semibold transition-all duration-300 block z-10 cursor-pointer
+                        ${isActive ? 'text-cta font-bold' : 'text-text-muted hover:text-text-main'}`}
+                    >
+                      {label}
+                      {isActive && (
+                         <motion.div
+                          layoutId="nav-pill"
+                          className="absolute inset-0 bg-cta/5 rounded-full border border-cta/25 -z-10 shadow-[0_0_15px_var(--cta-glow)]"
+                          transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
+                        />
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Theme Toggle */}
+            <div className="md:border-l md:border-border/30 md:pl-4">
+              <button
+                onClick={toggleTheme}
+                className="w-10 h-10 rounded-xl bg-surface-glass border border-border/50 flex items-center justify-center hover:border-cta/50 transition-all duration-300 active:scale-95 cursor-pointer relative overflow-hidden group shadow-sm hover:shadow-md"
+                title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={theme}
+                    initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {label}
-                    {isActive && (
-                      <motion.div
-                        layoutId="nav-pill"
-                        className="absolute inset-0 bg-white/10 rounded-full border border-white/10 -z-10 shadow-neon-cyan"
-                        transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
-                      />
+                    {theme === 'dark' ? (
+                      <Sun size={18} className="text-text-main group-hover:text-cta transition-colors" />
+                    ) : (
+                      <Moon size={18} className="text-text-main group-hover:text-cta transition-colors" />
                     )}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                  </motion.div>
+                </AnimatePresence>
+              </button>
+            </div>
+          </div>
         </nav>
       </motion.header>
 
@@ -137,7 +186,7 @@ export default function Navbar() {
       <motion.nav
         initial={{ y: 100 }}
         animate={{ y: 0 }}
-        className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-[#0d0d0d]/95 border-t border-white/10 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.5)]"
+        className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-background/90 border-t border-border/30 pb-safe shadow-lg backdrop-blur-md"
       >
         <ul className="flex items-center justify-around h-16 px-2">
           {navLinks.map(({ label, id, icon: Icon }) => {
@@ -147,23 +196,23 @@ export default function Navbar() {
                 <button
                   onClick={() => handleNavClick(id)}
                   className={`flex flex-col items-center justify-center gap-1 w-full h-full transition-all duration-300
-                    ${isActive ? 'text-primary' : 'text-text-muted'}`}
+                    ${isActive ? 'text-cta font-bold' : 'text-text-muted hover:text-text-main'}`}
                 >
                   <div className="relative flex items-center justify-center">
                     <AnimatePresence mode="wait">
                       {isActive && (
                         <motion.div
                           layoutId="active-indicator"
-                          className="absolute inset-0 -m-2 bg-primary/10 rounded-full blur-sm"
+                          className="absolute inset-0 -m-2 bg-cta/10 border border-cta/20 rounded-full"
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           exit={{ scale: 0 }}
                         />
                       )}
                     </AnimatePresence>
-                    <Icon size={20} className={isActive ? 'fill-primary/20' : ''} />
+                    <Icon size={20} className={isActive ? 'text-cta' : ''} />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider">{label}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider font-sans">{label}</span>
                 </button>
               </li>
             );

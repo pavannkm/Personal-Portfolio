@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
+import ParticleBackground from './components/ParticleBackground';
 // Sections — all rendered on one page
 import Hero     from './components/sections/Hero';
 import About    from './components/sections/About';
@@ -18,12 +18,16 @@ const PageLoading = () => (
 
 export default function App() {
   return (
-    <div className="bg-background text-text-main min-h-screen font-sans flex flex-col selection:bg-primary/30 selection:text-white">
+    <div className="bg-background text-text-main min-h-screen font-sans flex flex-col selection:bg-cta/30 selection:text-text-main relative overflow-hidden">
+
+      {/* Ambient floating blobs — behind everything */}
+      <ParticleBackground />
+
       {/* Fixed Navigation */}
       <Navbar />
 
       {/* Single scrollable content area — top padding clears the fixed navbar */}
-      <main className="flex-grow pt-16 pb-20 md:pb-0">
+      <main className="flex-grow pt-16 pb-20 md:pb-0 relative z-10">
         <Suspense fallback={<PageLoading />}>
           <Hero />
           <About />
