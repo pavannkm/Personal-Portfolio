@@ -106,7 +106,6 @@ const Skills = () => {
                   className="w-full flex flex-col justify-start"
                 >
                   <h3 className="text-3xl lg:text-4xl font-bold font-display tracking-tight text-text-main mb-10 flex items-center gap-4">
-                    <span className="text-cta">/</span> 
                     {skillsData[activeCategoryIndex].category}
                   </h3>
 

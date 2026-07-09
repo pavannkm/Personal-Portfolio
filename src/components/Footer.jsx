@@ -29,12 +29,9 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="flex flex-col items-center md:items-end gap-2 text-sm text-text-muted">
-            <p>© {currentYear} Pavan KM. All rights reserved.</p>
-            <p className="text-[10px] text-text-main tracking-[0.2em] uppercase font-bold bg-surface-glass px-3 py-1.5 rounded-lg border border-border/50 shadow-sm">
-              Offensive Security & VAPT Portfolio
-            </p>
-          </div>
+          <p className="text-sm text-text-muted text-center md:text-right">
+            © {currentYear} Pavan KM. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
