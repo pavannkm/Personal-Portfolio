@@ -28,24 +28,20 @@ const Hero = () => {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="text-center lg:text-left flex-1 max-w-2xl"
         >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-panel mb-10 md:mb-12"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cta opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cta shadow-[0_0_8px_var(--cta-glow)]"></span>
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-text-main font-sans">
-              Available for hire
-            </span>
-          </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-bold mb-8 md:mb-10 leading-[1.05] tracking-tighter font-display text-text-main">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-bold mb-0.5 md:mb-1 leading-[1.05] tracking-tighter font-display text-text-main">
             Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cta to-blue-400">Pavan</span>
           </h1>
+
+          {/* Role Label */}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.7 }}
+            className="text-base sm:text-lg font-sans font-medium text-cta tracking-wide mb-6 md:mb-8 flex items-center justify-center lg:justify-start gap-2"
+          >
+            Cybersecurity Intern at <span className="text-text-main">Beagle Security</span>
+          </motion.p>
 
           <p className="text-lg md:text-xl text-text-muted mb-12 md:mb-14 leading-relaxed font-sans max-w-xl mx-auto lg:mx-0 font-medium">
             {profile.hero.subheadline}
@@ -79,11 +75,11 @@ const Hero = () => {
         >
           {/* Outer Wrapper Container */}
           <div className="relative w-full aspect-[4/5] group">
-            
+
             {/* Background Glass Panel Card (Inside Grid) */}
             <div className="absolute inset-0 rounded-[3rem] overflow-hidden glass-panel transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-xl z-0">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/90 z-10 pointer-events-none"></div>
-              
+
               <img
                 src={profile.heroImageBack}
                 alt=""

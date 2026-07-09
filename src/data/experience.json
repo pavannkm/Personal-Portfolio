@@ -3,6 +3,20 @@
     "id": 1,
     "type": "experience",
     "role": "Cybersecurity Intern",
+    "company": "Beagle Security",
+    "location": "Thiruvananthapuram, Kerala",
+    "duration": "June 2026 – Present",
+    "highlights": [
+      "Performing vulnerability assessments on web applications and internal infrastructure.",
+      "Performing penetration testing tasks and delivered findings with actionable remediation guidance.",
+      "Reporting the found vulnerabilities into document with valid proof of concepts which helps the team.",
+      "Developing tools using python to know and understand their working principle."
+    ]
+  },
+  {
+    "id": 2,
+    "type": "experience",
+    "role": "Cybersecurity Intern",
     "company": "Hackware Security Solutions LLP",
     "location": "Kochi, Kerala",
     "duration": "Oct 2025 – Apr 2026",
@@ -14,7 +28,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "type": "experience",
     "role": "Cybersecurity Student Trainee",
     "company": "Offenso Hackers Academy",
