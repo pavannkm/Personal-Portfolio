@@ -7,10 +7,10 @@
     "location": "Thiruvananthapuram, Kerala",
     "duration": "June 2026 – Present",
     "highlights": [
-      "Performing vulnerability assessments on web applications and internal infrastructure.",
-      "Performing penetration testing tasks and delivered findings with actionable remediation guidance.",
-      "Reporting the found vulnerabilities into document with valid proof of concepts which helps the team.",
-      "Developing tools using python to know and understand their working principle."
+      "Conducting vulnerability assessments and penetration tests on web applications and internal infrastructure using tools such as Burp Suite, Nmap, etc.",
+      "Identifying and documenting security vulnerabilities with validated proof-of-concept evidence, delivering actionable remediation guidance aligned with industry standards.",
+      "Producing structured vulnerability reports with severity classifications to communicate risk clearly to development and security teams.",
+      "Developing custom Python-based automation scripts to streamline reconnaissance and testing workflows, improving overall assessment efficiency."
     ]
   },
   {
@@ -21,10 +21,10 @@
     "location": "Kochi, Kerala",
     "duration": "Oct 2025 – Apr 2026",
     "highlights": [
-      "Conducted end-to-end VAPT and reconnaissance on web apps and network infrastructure, successfully uncovering high-severity flaws (SQLi, XSS, IDOR) using tools like Burp Suite and Nmap.",
+      "Conducted end-to-end VAPT and reconnaissance on web apps and network infrastructure, successfully uncovering high-severity flaws using tools like Burp Suite and Nmap.",
       "Assisted senior team members in validating exploits and authored detailed, CVSS-scored penetration testing reports with proof-of-concept evidence.",
       "Coordinated 'LOOP: Last One On Peak,' an attack and persistence-based hacking competition simulating real-world adversary tactics.",
-      "Provided technical infrastructure assistance and support for various cybersecurity events, including Capture The Flag (CTF) challenges and specialized hardware lab workshops."
+      "Provided technical infrastructure assistance and support for various cybersecurity events, including Capture The Flag challenges and specialized hardware lab workshops."
     ]
   },
   {
