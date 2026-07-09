@@ -19,7 +19,7 @@ const Footer = () => {
                 </span>
               </div>
               <span className="font-display font-bold text-xl tracking-wide text-text-main flex items-center gap-1.5">
-                <span>PAVAN</span>
+                <span>Pavan</span>
                 <span className="text-cta">KM</span>
               </span>
             </div>
